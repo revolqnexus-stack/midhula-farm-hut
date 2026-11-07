@@ -1,0 +1,114 @@
+{{ 'farm-introduction.css' | asset_url | stylesheet_tag }}
+
+<section class="farm-introduction section" id="farm">
+  <div class="container">
+    <div class="farm-intro-content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="farm-intro-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <div class="farm-intro-description">
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="farm-intro-image">
+      {%- if section.settings.farm_image != blank -%}
+        {{ section.settings.farm_image | image_url: width: 2560 | image_tag:
+           loading: 'lazy',
+           alt: 'Midhula Farm'
+        }}
+      {%- else -%}
+        <div class="farm-image-placeholder"></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .farm-introduction {
+    background: var(--color-paper);
+  }
+  
+  .farm-intro-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+  }
+  
+  .farm-intro-heading {
+    font-size: var(--text-5xl);
+    color: var(--color-deep-water);
+    margin-bottom: var(--space-6);
+  }
+  
+  .farm-intro-description {
+    font-size: var(--text-xl);
+    color: var(--color-ink);
+    line-height: var(--leading-relaxed);
+  }
+  
+  .farm-intro-image {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .farm-intro-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .farm-image-placeholder {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: linear-gradient(135deg, var(--color-water-light), var(--color-leaf-light));
+  }
+  
+  @media (max-width: 768px) {
+    .farm-intro-heading {
+      font-size: var(--text-3xl);
+    }
+    
+    .farm-intro-description {
+      font-size: var(--text-lg);
+    }
+    
+    .farm-image-placeholder {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Farm Introduction",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "More than fish. A little ecosystem."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Behind every beautiful fish is a place where it grows. At Midhula Farm Hut in Kerala, we breed ornamental fish in carefully maintained environments—from tarpaulin ponds to breeding tanks."
+    },
+    {
+      "type": "image_picker",
+      "id": "farm_image",
+      "label": "Farm Image",
+      "info": "2560x1097px recommended. Wide panorama of farm."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Farm Introduction"
+    }
+  ]
+}
+{% endschema %}

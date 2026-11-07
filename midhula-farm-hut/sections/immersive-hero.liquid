@@ -1,0 +1,131 @@
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-section" id="hero">
+  <div class="hero-background">
+    {%- if section.settings.background_image != blank -%}
+      {{ section.settings.background_image | image_url: width: 2400 | image_tag:
+         loading: 'eager',
+         class: 'hero-bg-image',
+         alt: 'Aquatic environment'
+      }}
+    {%- else -%}
+      <div class="hero-bg-placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="hero-decorations">
+    <div class="bubble bubble-1" aria-hidden="true"></div>
+    <div class="bubble bubble-2" aria-hidden="true"></div>
+    <div class="bubble bubble-3" aria-hidden="true"></div>
+    <div class="bubble bubble-4" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-fish">
+    {%- if section.settings.fish_image != blank -%}
+      {{ section.settings.fish_image | image_url: width: 1200 | image_tag:
+         loading: 'eager',
+         class: 'hero-fish-image',
+         alt: 'Ornamental fish'
+      }}
+    {%- endif -%}
+  </div>
+
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-text">
+        {%- if section.settings.headline != blank -%}
+          <h1 class="hero-headline">
+            {{ section.settings.headline }}
+          </h1>
+        {%- endif -%}
+        
+        {%- if section.settings.subheading != blank -%}
+          <p class="hero-subheading">
+            {{ section.settings.subheading }}
+          </p>
+        {%- endif -%}
+
+        <div class="hero-cta">
+          <a href="{{ section.settings.primary_button_link }}" class="btn btn-primary btn-large">
+            {{ section.settings.primary_button_label }}
+          </a>
+          <a href="{{ section.settings.secondary_button_link }}" class="btn btn-secondary btn-large">
+            {{ section.settings.secondary_button_label }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll to explore</span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Immersive Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Small worlds. Extraordinary colours."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Ornamental fish bred with care in Kerala"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "2400x1350px recommended. Aquatic environment."
+    },
+    {
+      "type": "image_picker",
+      "id": "fish_image",
+      "label": "Hero Fish Image",
+      "info": "1200x1200px PNG with transparent background. Single ornamental fish."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary Button Label",
+      "default": "Shop Fish"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary Button Label",
+      "default": "Discover Our Farm"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link",
+      "default": "/#farm"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color (if no image)",
+      "default": "#7BC8D9"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Immersive Hero"
+    }
+  ]
+}
+{% endschema %}

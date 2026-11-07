@@ -1,0 +1,152 @@
+<section class="farm-diary section">
+  <div class="container">
+    <div class="section-header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="diary-grid">
+      {% for block in section.blocks %}
+        <div class="diary-item">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 800 | image_tag:
+               loading: 'lazy',
+               class: 'diary-image',
+               alt: block.settings.caption
+            }}
+          {%- else -%}
+            <div class="diary-placeholder"></div>
+          {%- endif -%}
+          
+          {%- if block.settings.caption != blank -%}
+            <p class="diary-caption">{{ block.settings.caption }}</p>
+          {%- endif -%}
+        </div>
+      {% endfor %}
+    </div>
+    
+    {%- if settings.social_instagram_link != blank -%}
+      <div class="diary-cta">
+        <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          Follow us on Instagram
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .farm-diary {
+    background: var(--color-white);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+  
+  .section-heading {
+    font-size: var(--text-5xl);
+    color: var(--color-deep-water);
+  }
+  
+  .diary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  @media (min-width: 640px) {
+    .diary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .diary-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .diary-item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-base);
+    transition: all var(--duration-base) var(--ease-out);
+  }
+  
+  .diary-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .diary-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  
+  .diary-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--color-water-light), var(--color-leaf-light));
+  }
+  
+  .diary-caption {
+    padding: var(--space-4);
+    background: var(--color-white);
+    font-size: var(--text-base);
+    color: var(--color-ink-light);
+    text-align: center;
+  }
+  
+  .diary-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-12);
+  }
+  
+  @media (max-width: 768px) {
+    .section-heading {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Farm Diary",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Life around the ponds"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Farm Diary"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+<section class="care-trust section">
+  <div class="container">
+    <div class="care-trust-grid">
+      <div class="care-trust-image">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1200 | image_tag:
+             loading: 'lazy',
+             alt: 'Care and attention'
+          }}
+        {%- else -%}
+          <div class="care-image-placeholder"></div>
+        {%- endif -%}
+      </div>
+      
+      <div class="care-trust-content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="care-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        
+        {%- if section.settings.description != blank -%}
+          <p class="care-description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .care-trust {
+    background: var(--color-paper);
+  }
+  
+  .care-trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+  
+  @media (min-width: 1024px) {
+    .care-trust-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+  
+  .care-trust-image {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .care-trust-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .care-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(135deg, var(--color-water-light), var(--color-leaf-light));
+  }
+  
+  .care-heading {
+    font-size: var(--text-5xl);
+    color: var(--color-deep-water);
+    margin-bottom: var(--space-6);
+  }
+  
+  .care-description {
+    font-size: var(--text-xl);
+    color: var(--color-ink);
+    line-height: var(--leading-relaxed);
+  }
+  
+  @media (max-width: 768px) {
+    .care-heading {
+      font-size: var(--text-3xl);
+    }
+    
+    .care-description {
+      font-size: var(--text-lg);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Care & Trust",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A little care goes a long way"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every fish is raised with attention, from breeding to feeding to preparation for its journey to your home."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1200x1500px recommended. Hand holding fish."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Care & Trust"
+    }
+  ]
+}
+{% endschema %}

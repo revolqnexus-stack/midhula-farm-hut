@@ -1,0 +1,154 @@
+/* ==========================================================================
+   LIFECYCLE STORY SECTION
+   ========================================================================== */
+
+.lifecycle-section {
+  background: var(--color-white);
+}
+
+.lifecycle-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.lifecycle-heading {
+  font-size: var(--text-5xl);
+  color: var(--color-deep-water);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .lifecycle-heading {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* Timeline */
+.lifecycle-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .lifecycle-timeline {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* Stage */
+.lifecycle-stage {
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fade-in-up 0.8s var(--ease-organic) forwards;
+}
+
+.lifecycle-stage:nth-child(1) { animation-delay: 0.1s; }
+.lifecycle-stage:nth-child(2) { animation-delay: 0.2s; }
+.lifecycle-stage:nth-child(3) { animation-delay: 0.3s; }
+.lifecycle-stage:nth-child(4) { animation-delay: 0.4s; }
+
+.stage-image {
+  aspect-ratio: 1;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-base);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.lifecycle-stage:hover .stage-image {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stage-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-water-light), var(--color-leaf-light));
+}
+
+/* Stage Content */
+.stage-content {
+  text-align: center;
+}
+
+.stage-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-3);
+  background: var(--color-coral);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  border-radius: 50%;
+}
+
+.stage-label {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-deep-water);
+  margin-bottom: var(--space-2);
+}
+
+.stage-description {
+  font-size: var(--text-lg);
+  color: var(--color-ink-light);
+}
+
+/* Stage Connector */
+.stage-connector {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .stage-connector {
+    display: block;
+    position: absolute;
+    top: 40%;
+    right: calc(-1 * var(--space-8) / 2 - 20px);
+    width: calc(var(--space-8) + 40px);
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--color-coral) 0%,
+      var(--color-water) 100%
+    );
+    transform: translateY(-50%);
+  }
+  
+  .stage-connector::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid var(--color-water);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lifecycle-stage {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

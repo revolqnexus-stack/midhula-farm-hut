@@ -1,0 +1,236 @@
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-water);
+}
+
+/* Background */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-water) 0%, var(--color-deep-water) 100%);
+}
+
+/* Decorations - Floating Bubbles */
+.hero-decorations {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.8), 
+    rgba(255, 255, 255, 0.2)
+  );
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  opacity: 0.6;
+}
+
+.bubble-1 {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  left: 15%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.bubble-2 {
+  width: 40px;
+  height: 40px;
+  top: 60%;
+  left: 75%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+.bubble-3 {
+  width: 30px;
+  height: 30px;
+  top: 35%;
+  right: 20%;
+  animation: float 3s ease-in-out infinite 1s;
+}
+
+.bubble-4 {
+  width: 50px;
+  height: 50px;
+  bottom: 20%;
+  left: 60%;
+  animation: float 4.5s ease-in-out infinite 1.5s;
+}
+
+/* Hero Fish */
+.hero-fish {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-fish-image {
+  max-width: 600px;
+  width: 50%;
+  height: auto;
+  animation: drift 8s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .hero-fish-image {
+    width: 70%;
+    max-width: 400px;
+  }
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: var(--space-8) 0;
+}
+
+.hero-text {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-headline {
+  font-size: var(--text-6xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  color: var(--color-white);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--space-6);
+  animation: fade-in-up 1s var(--ease-organic);
+}
+
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: var(--text-4xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: var(--text-3xl);
+  }
+}
+
+.hero-subheading {
+  font-size: var(--text-xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-8);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  animation: fade-in-up 1s var(--ease-organic) 0.2s backwards;
+}
+
+@media (max-width: 768px) {
+  .hero-subheading {
+    font-size: var(--text-lg);
+  }
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  animation: fade-in-up 1s var(--ease-organic) 0.4s backwards;
+}
+
+/* Scroll Indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  animation: fade-in-up 1s var(--ease-organic) 0.8s backwards;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-white) 50%,
+    transparent 100%
+  );
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scroll-text {
+  font-size: var(--text-sm);
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .hero-scroll-indicator {
+    bottom: var(--space-6);
+  }
+  
+  .scroll-text {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bubble {
+    animation: none;
+  }
+  
+  .hero-fish-image {
+    animation: none;
+  }
+  
+  .scroll-line {
+    animation: none;
+    opacity: 0.7;
+  }
+}

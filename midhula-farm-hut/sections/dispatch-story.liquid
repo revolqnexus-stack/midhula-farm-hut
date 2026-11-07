@@ -1,0 +1,208 @@
+<section class="dispatch-story section" id="dispatch">
+  <div class="container">
+    <div class="dispatch-header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="dispatch-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.subheading != blank -%}
+        <p class="dispatch-subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="dispatch-timeline">
+      {% for block in section.blocks %}
+        <div class="dispatch-stage">
+          <div class="dispatch-image">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1600 | image_tag:
+                 loading: 'lazy',
+                 alt: block.settings.label
+              }}
+            {%- else -%}
+              <div class="dispatch-placeholder"></div>
+            {%- endif -%}
+          </div>
+          
+          <div class="dispatch-content">
+            <div class="dispatch-number">{{ forloop.index }}</div>
+            <h3 class="dispatch-label">{{ block.settings.label }}</h3>
+            <p class="dispatch-description">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .dispatch-story {
+    background: linear-gradient(135deg, var(--color-water-light), var(--color-leaf-light));
+  }
+  
+  .dispatch-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  
+  .dispatch-heading {
+    font-size: var(--text-5xl);
+    color: var(--color-deep-water);
+    margin-bottom: var(--space-3);
+  }
+  
+  .dispatch-subheading {
+    font-size: var(--text-2xl);
+    color: var(--color-coral);
+    font-weight: 600;
+  }
+  
+  .dispatch-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+  
+  @media (min-width: 1024px) {
+    .dispatch-timeline {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-12);
+    }
+  }
+  
+  .dispatch-stage {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  
+  .dispatch-image {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .dispatch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .dispatch-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-water-light), var(--color-paper));
+  }
+  
+  .dispatch-content {
+    text-align: center;
+  }
+  
+  .dispatch-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--space-3);
+    background: var(--color-coral);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: var(--text-xl);
+    border-radius: 50%;
+  }
+  
+  .dispatch-label {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-deep-water);
+    margin-bottom: var(--space-2);
+  }
+  
+  .dispatch-description {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+  }
+  
+  @media (max-width: 768px) {
+    .dispatch-heading {
+      font-size: var(--text-3xl);
+    }
+    
+    .dispatch-subheading {
+      font-size: var(--text-xl);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dispatch Story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Wednesday is journey day"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Packed with care. Sent with love."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Dispatch Stage",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Stage Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Stage Label"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dispatch Story",
+      "blocks": [
+        {
+          "type": "stage",
+          "settings": {
+            "label": "Selection",
+            "description": "Your fish is carefully chosen"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "label": "Packaging",
+            "description": "Prepared for a safe journey"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "label": "Dispatch",
+            "description": "On its way to you"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,54 @@
+{% if section.settings.show_announcement %}
+  <div class="announcement-bar" style="background: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+    <div class="container">
+      <p class="announcement-text">
+        {{ section.settings.announcement_text }}
+      </p>
+    </div>
+  </div>
+
+  <style>
+    .announcement-bar {
+      padding: var(--space-2) 0;
+      text-align: center;
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    
+    .announcement-text {
+      margin: 0;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "🐠 Wednesday is dispatch day! Order now for next delivery."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#7CA66A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    }
+  ]
+}
+{% endschema %}

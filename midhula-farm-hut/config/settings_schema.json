@@ -1,0 +1,136 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Midhula Farm Hut",
+    "theme_version": "1.0.0",
+    "theme_author": "Custom",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_water",
+        "label": "Aquatic Blue",
+        "default": "#7BC8D9"
+      },
+      {
+        "type": "color",
+        "id": "color_deep_water",
+        "label": "Deep Teal",
+        "default": "#174D59"
+      },
+      {
+        "type": "color",
+        "id": "color_leaf",
+        "label": "Leaf Green",
+        "default": "#7CA66A"
+      },
+      {
+        "type": "color",
+        "id": "color_coral",
+        "label": "Coral Orange",
+        "default": "#F16B4E"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Background Paper",
+        "default": "#F7F2E8"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Text Ink",
+        "default": "#243A35"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Families"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "assistant_n4",
+        "label": "Heading Font",
+        "info": "Used for headlines and display text"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "Body Font",
+        "info": "Used for body text and UI elements"
+      }
+    ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "header",
+        "content": "WhatsApp"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp Number",
+        "info": "Format: Country code + number (e.g., 918129120437)",
+        "default": "918129120437"
+      }
+    ]
+  },
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 250,
+        "step": 10,
+        "unit": "px",
+        "label": "Logo Width",
+        "default": 150
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "32x32px PNG recommended"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram URL",
+        "info": "https://www.instagram.com/yourhandle/"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook URL"
+      }
+    ]
+  }
+]

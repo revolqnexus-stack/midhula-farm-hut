@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "immersive_hero": {
+      "type": "immersive-hero",
+      "settings": {
+        "headline": "Small worlds. Extraordinary colours.",
+        "subheading": "Ornamental fish bred with care in Kerala"
+      }
+    },
+    "farm_introduction": {
+      "type": "farm-introduction",
+      "settings": {
+        "heading": "More than fish. A little ecosystem.",
+        "description": "Behind every beautiful fish is a place where it grows. At Midhula Farm Hut in Kerala, we breed ornamental fish in carefully maintained environments—from tarpaulin ponds to breeding tanks."
+      }
+    },
+    "lifecycle_story": {
+      "type": "lifecycle-story",
+      "settings": {
+        "heading": "From tiny beginnings to beautiful little swimmers"
+      }
+    },
+    "featured_collections": {
+      "type": "featured-collections",
+      "settings": {
+        "heading": "Meet the little stars"
+      }
+    },
+    "care_trust": {
+      "type": "care-trust",
+      "settings": {
+        "heading": "A little care goes a long way",
+        "description": "Every fish is raised with attention, from breeding to feeding to preparation for its journey to your home."
+      }
+    },
+    "farm_diary": {
+      "type": "farm-diary",
+      "settings": {
+        "heading": "Life around the ponds"
+      }
+    },
+    "dispatch_story": {
+      "type": "dispatch-story",
+      "settings": {
+        "heading": "Wednesday is journey day",
+        "subheading": "Packed with care. Sent with love."
+      }
+    },
+    "final_cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready to bring home a little colour?",
+        "button_label": "Explore the Collection",
+        "button_link": "/collections/all"
+      }
+    }
+  },
+  "order": [
+    "immersive_hero",
+    "farm_introduction",
+    "lifecycle_story",
+    "featured_collections",
+    "care_trust",
+    "farm_diary",
+    "dispatch_story",
+    "final_cta"
+  ]
+}
