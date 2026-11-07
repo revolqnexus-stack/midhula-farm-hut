@@ -3,24 +3,30 @@
    ========================================================================== */
 
 :root {
-  /* Colors */
-  --color-water: #7BC8D9;
-  --color-deep-water: #174D59;
-  --color-leaf: #7CA66A;
-  --color-coral: #F16B4E;
-  --color-paper: #F7F2E8;
-  --color-sand: #D8C4A3;
-  --color-ink: #243A35;
+  /* Brand Colors — Midhula Farm Hut "Dive into the Hut" */
+  --color-water: #0B5FA5;           /* Pond blue — primary */
+  --color-deep-water: #062B4A;      /* Deep water — deep background */
+  --color-leaf: #2E9E5B;            /* Leaf green — secondary accent */
+  --color-coral: #FF6B2C;           /* Guppy orange — main CTA accent (money buttons only) */
+  --color-orange: #FF6B2C;          /* Guppy orange — alias */
+  --color-yellow: #FFC93C;          /* Sunlit yellow — highlight */
+  --color-kraft: #B98A5B;           /* Kraft brown — packaging */
+  --color-mist: #F2FAFD;            /* Mist — light background */
+  --color-ink: #0A1F33;             /* Ink — text */
+  --color-paper: var(--color-mist);
+  --color-sand: var(--color-kraft);
   --color-white: #FFFFFF;
-  
+
   /* Opacity variants */
-  --color-water-light: rgba(123, 200, 217, 0.1);
-  --color-leaf-light: rgba(124, 166, 106, 0.1);
-  --color-ink-light: rgba(36, 58, 53, 0.7);
-  
+  --color-water-light: rgba(11, 95, 165, 0.1);
+  --color-leaf-light: rgba(46, 158, 91, 0.1);
+  --color-orange-light: rgba(255, 107, 44, 0.1);
+  --color-ink-light: rgba(10, 31, 51, 0.7);
+
   /* Typography */
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Fredoka', 'Baloo 2', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-malayalam: 'Noto Sans Malayalam', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   
   /* Type scale */
   --text-xs: 0.75rem;
@@ -215,7 +221,7 @@ h6 { font-size: var(--text-xl); }
 }
 
 .btn-primary:hover {
-  background: #E05A3E;
+  background: #E85A1C;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -223,11 +229,11 @@ h6 { font-size: var(--text-xl); }
 .btn-secondary {
   background: transparent;
   color: var(--color-ink);
-  border: 2px solid var(--color-ink);
+  border: 2px solid var(--color-deep-water);
 }
 
 .btn-secondary:hover {
-  background: var(--color-ink);
+  background: var(--color-deep-water);
   color: var(--color-white);
 }
 

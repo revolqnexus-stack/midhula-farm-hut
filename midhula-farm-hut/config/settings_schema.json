@@ -17,38 +17,38 @@
       {
         "type": "color",
         "id": "color_water",
-        "label": "Aquatic Blue",
-        "default": "#7BC8D9"
+        "label": "Aquatic Blue (Pond Blue)",
+        "default": "#0B5FA5"
       },
       {
         "type": "color",
         "id": "color_deep_water",
-        "label": "Deep Teal",
-        "default": "#174D59"
+        "label": "Deep Water",
+        "default": "#062B4A"
       },
       {
         "type": "color",
         "id": "color_leaf",
         "label": "Leaf Green",
-        "default": "#7CA66A"
+        "default": "#2E9E5B"
       },
       {
         "type": "color",
         "id": "color_coral",
-        "label": "Coral Orange",
-        "default": "#F16B4E"
+        "label": "Guppy Orange (CTA)",
+        "default": "#FF6B2C"
       },
       {
         "type": "color",
         "id": "color_paper",
-        "label": "Background Paper",
-        "default": "#F7F2E8"
+        "label": "Background Mist",
+        "default": "#F2FAFD"
       },
       {
         "type": "color",
         "id": "color_ink",
         "label": "Text Ink",
-        "default": "#243A35"
+        "default": "#0A1F33"
       }
     ]
   },
@@ -62,16 +62,16 @@
       {
         "type": "font_picker",
         "id": "type_header_font",
-        "default": "assistant_n4",
+        "default": "fredoka_n4",
         "label": "Heading Font",
-        "info": "Used for headlines and display text"
+        "info": "Fredoka or Baloo 2 — friendly, hand-made display font"
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
-        "default": "assistant_n4",
+        "default": "inter_n4",
         "label": "Body Font",
-        "info": "Used for body text and UI elements"
+        "info": "Inter or Poppins — clean, readable sans"
       }
     ]
   },
